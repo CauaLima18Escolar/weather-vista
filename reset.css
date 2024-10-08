@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    background-image: url('initial-BG.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#root {
+    height: 100dvh;
+    backdrop-filter: blur(2px);
+}
