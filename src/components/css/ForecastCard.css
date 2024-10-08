@@ -1,0 +1,24 @@
+.weatherForecast {
+    justify-self: end;
+    border-radius: 4px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.weatherForecast .today h1 {
+    font-size: 2.25rem;
+    margin-bottom: 32px;
+}
+
+.weatherForecast .nextDays {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (width <= 1450px){
+    .weatherForecast {
+        width: 100%;
+    }
+}

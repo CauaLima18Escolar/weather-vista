@@ -1,0 +1,22 @@
+.header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    padding: 24px 60px;
+    margin-bottom: 60px;
+    background-color: #11212D;
+}
+
+@media (width <= 1200px){
+    .header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .header img {
+        justify-self: center;
+    }
+}

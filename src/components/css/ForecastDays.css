@@ -1,0 +1,40 @@
+.forecastDays {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+    align-items: center;
+    border: 1px solid #243644;
+    border-radius: 8px;
+    padding-right: 10px;
+}
+
+.forecastDays h2 {
+    font-size: 2rem;
+}
+
+.forecastDays .dayTemp {
+    display: flex;
+    padding: 16px 10px;
+    border-radius: 8px 0 0 8px;
+    gap: 16px;
+    background-color: #243644;
+}
+
+.forecastDays .dayTemp h2 {
+    display: flex;
+    color: #fff;
+}
+
+.forecastDays .dayTemp > span {
+    display: flex;
+    align-items: center;
+}
+
+.forecastDays .weatherIcon {
+    place-self: center;
+    width: 40px;
+}
+
+.forecastDays .dayName {
+    place-self: center end;
+    text-align: center;
+}
