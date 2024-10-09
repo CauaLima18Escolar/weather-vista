@@ -10,9 +10,7 @@ const ForecastData = ({data}) => {
 
     React.useEffect(() => {
         setTodayForecast([])
-    }, [data[0].city.name])
 
-    React.useEffect(() => {
         data[0].list.forEach((obj) => {
             if (obj.dt_txt.includes(`${String(todayMonth).padStart(2, '0')}-${String(todayDay).padStart(2, '0')}`)){
     
@@ -31,7 +29,9 @@ const ForecastData = ({data}) => {
     
   return (
     <div className='forecastData'>
-        {todayForecast.map(({hour, rain}) => {
+        {todayForecast.length === 0 && <h3 className='noForecast'>Sem previsões para hoje.</h3>}
+
+        {todayForecast.length !== 0 && todayForecast.map(({hour, rain}) => {
             let stateLevel
 
             if (rain <= 33){
@@ -43,7 +43,7 @@ const ForecastData = ({data}) => {
             } else {
                 stateLevel = 'high'
             }
-
+            
             return (<ProgressBar key={hour} hour={hour} rainChance={rain} state={stateLevel} data={data}/>)
         })}
     </div>

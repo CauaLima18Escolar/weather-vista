@@ -1,5 +1,12 @@
 .forecastData {
-    margin-bottom: 32px;
+    margin-bottom: 64px;
+}
+
+.noForecast {
+    font-weight: 400;
+    color: #98A6A9;
+    text-align: center;
+    margin: 120px 0;
 }
 
 

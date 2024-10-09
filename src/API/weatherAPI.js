@@ -4,14 +4,27 @@ const URL_Base = `https://api.openweathermap.org/data/2.5/forecast?appid=${API_K
 const URL_Base_Photos = `https://api.unsplash.com/search/photos?client_id=${API_Key_Photos}&page=1&orientation=landscape`
 
 const getWeatherData = async (city, setLoading) => {
-    setLoading(true)
-    const photosResp = await fetch(`${URL_Base_Photos}&query=${city} cidade`)
-    const photosJson = await photosResp.json()
+    try {
+        setLoading(true)
+        const photosResp = await fetch(`${URL_Base_Photos}&query=${city} cidade`)
+        if (!photosResp.ok){
+            return false
+        }
 
-    const weatherResp = await fetch(`${URL_Base}&q=${city}`);
-    const weatherJson = await weatherResp.json();
+        const photosJson = await photosResp.json()
 
-    return [weatherJson, photosJson];
+        const weatherResp = await fetch(`${URL_Base}&q=${city}`);
+        if (!weatherResp.ok){
+            return false
+        }
+
+        const weatherJson = await weatherResp.json();
+
+        return [weatherJson, photosJson];
+    } catch (error) {
+        console.error(error);
+    }
+    
 };
 
 export default getWeatherData;

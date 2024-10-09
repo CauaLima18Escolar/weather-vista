@@ -7,20 +7,16 @@ import snow from '../assets/WeatherStates/snow.svg';
 import rainy from '../assets/WeatherStates/rainy.svg';
 import thunderstorm from '../assets/WeatherStates/thunderstorm.svg';
 
-const WeatherCard = ({data}) => {
-  const [day, setDay] = React.useState('')
-  const [hour, setHour] = React.useState('')
-  const [weatherState, setWeatherState] = React.useState(null)
-  const randomImage = parseInt(Math.random() * data[1].results.length)
-
-  function formatDate(date){
-    let formated = new Date(date)
-    let options = {weekday: 'short'}
-    let TodayDay = formated.toLocaleDateString('pt-BR', options);
-    TodayDay = (TodayDay.charAt(0).toUpperCase() + TodayDay.slice(1)).replace('.','')
-
-    setHour(formated.getHours())
-    setDay(TodayDay)
+const WeatherCard = ({data, cityImg, day, hour}) => {
+  const [weatherState, setWeatherState] = React.useState(null);
+  const [cityTemp, setCityTemp] = React.useState('');
+  const [cityFlag, setCityFlag] = React.useState('');
+  const [cityName, setCityName] = React.useState('');
+  
+  function getCityDetails(){
+    setCityTemp(data[0].list[0].main.temp)
+    setCityFlag(data[0].city.country)
+    setCityName(data[0].city.name)
   }
 
   function getWeatherState(localWeather){
@@ -54,10 +50,9 @@ const WeatherCard = ({data}) => {
 
   React.useEffect(() => {
     if (data[0]){
-      formatDate(data[0].list[0].dt_txt);
+      getCityDetails()
       getWeatherState(data[0].list[0].weather[0].description);
     };
-
   }, [data[0]])
 
   return (
@@ -66,20 +61,20 @@ const WeatherCard = ({data}) => {
         <span className='cityDetails'>
           <span className='cityTemp'>
             <img src={weatherState} />
-            <h2>{data[0].list[0].main.temp} <span className='deg'>°C</span></h2>
+            <h2>{cityTemp} <span className='deg'>°C</span></h2>
           </span>
 
           <span className='city'>
-            <img src={`https://flagsapi.com/${data[0].city.country}/flat/64.png`} alt="" />
+            <img src={`https://flagsapi.com/${cityFlag}/flat/64.png`} alt="" />
             <span className='cityName'>
-              <h2>{data[0].city.name}</h2>
+              <h2>{cityName}</h2>
               <p>{day}, {hour}:00h</p>
             </span>
           </span>
         </span>
 
         <picture className='cityImage'>
-          <img src={data[1].results[randomImage].urls.full} alt="Cidade" />
+          <img src={cityImg} alt="Cidade" />
         </picture>
 
       </div>
