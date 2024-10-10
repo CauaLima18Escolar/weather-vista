@@ -14,19 +14,13 @@ const WeatherCard = ({data, cityImg, day, hour}) => {
   const [cityName, setCityName] = React.useState('');
   
   function getCityDetails(){
-    setCityTemp(data[0].list[0].main.temp)
-    setCityFlag(data[0].city.country)
-    setCityName(data[0].city.name)
+    setCityTemp(data.list[0].main.temp)
+    setCityFlag(data.city.country)
+    setCityName(data.city.name)
   }
 
   function getWeatherState(localWeather){
-    const weatherStates = [
-      sunny,
-      cloud,
-      snow,
-      rainy,
-      thunderstorm
-    ]
+    const weatherStates = [sunny, cloud, snow, rainy, thunderstorm]
 
     if (localWeather === 'céu limpo') {
       setWeatherState(weatherStates[0]);
@@ -49,11 +43,11 @@ const WeatherCard = ({data, cityImg, day, hour}) => {
   }
 
   React.useEffect(() => {
-    if (data[0]){
+    if (data){
       getCityDetails()
-      getWeatherState(data[0].list[0].weather[0].description);
+      getWeatherState(data.list[0].weather[0].description);
     };
-  }, [data[0]])
+  }, [data])
 
   return (
     <div className='weatherCard'>
@@ -81,7 +75,7 @@ const WeatherCard = ({data, cityImg, day, hour}) => {
 
       <div className='statistics'>
         <h1>Estatísticas</h1>
-        <WeatherData data={data[0]}/>
+        <WeatherData data={data}/>
       </div>
     </div>
   )

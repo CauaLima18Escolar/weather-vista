@@ -32,7 +32,7 @@ const App = () => {
       return 
     }
 
-    setWeatherData(data)
+    setWeatherData(data[0])
     setCityImg(data[1].results[0].urls.regular)
     setDataError(false)
     setLoading(false)
@@ -40,7 +40,7 @@ const App = () => {
 
   React.useEffect(() => {
     if (weatherData){
-      getDay_getHour(weatherData[0].list[0].dt_txt);
+      getDay_getHour(weatherData.list[0].dt_txt);
     }
   }, [weatherData])
 

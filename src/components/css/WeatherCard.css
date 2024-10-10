@@ -3,6 +3,7 @@
     background-color: #fff;
     width: 100%;
     border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .cityImage img {
@@ -48,7 +49,7 @@
 
 .cityTemp {
     display: flex;
-    align-items: center;
+    align-items: start;
     gap: 8px;
     font-size: 2rem;
     top: 20px;
@@ -94,10 +95,42 @@
     }
 
     .cityTemp .deg {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        right: -28px;
     }
 
     .cityTemp img {
         width: 40px;
+    }
+
+    .cityName h2 {
+        font-size: 2rem;
+     }  
+}
+
+@media (width <= 680px){
+    .cityTemp h2 {
+        font-size: 1.5rem;
+    }
+
+    .cityTemp .deg {
+        font-size: 1rem;
+        right: -20px;
+    }
+
+    .cityTemp img {
+        width: 32px;
+    }
+
+    .cityName h2 {
+        font-size: 1.5rem;
+     }
+
+    .city img {
+        width: 32px;
+    }
+
+    .statistics h1 {
+        font-size: 1.5rem;
     }
 }

@@ -11,21 +11,21 @@ const ForecastData = ({data}) => {
     React.useEffect(() => {
         setTodayForecast([])
 
-        data[0].list.forEach((obj) => {
+        data.list.forEach((obj) => {
             if (obj.dt_txt.includes(`${String(todayMonth).padStart(2, '0')}-${String(todayDay).padStart(2, '0')}`)){
     
                 const forecastHour = new Date(obj.dt_txt).getHours();
     
                 const rainChance = obj.pop * 100;
                 const forecast = {
-                    hour: forecastHour, 
+                    hour: forecastHour,
                     rain: rainChance,
                 };
         
                 setTodayForecast((prevForecast) => [...prevForecast, forecast]);
             }
         });
-    }, [data[0]])
+    }, [data])
     
   return (
     <div className='forecastData'>

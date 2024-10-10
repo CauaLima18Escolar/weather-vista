@@ -1,8 +1,8 @@
 .progressBar {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: max-content 1fr;
     align-items: center;
-    text-align: end;
+    text-align: start;
     gap: 20px;
 }
 
@@ -35,5 +35,11 @@ progress::-webkit-progress-bar {
 .high::-webkit-progress-value {
     background: #06141B; 
     border-radius: 12px; 
+}
+
+@media (width <= 680px){
+    .progressBar h3 {
+        font-size: 1rem;
+    }
 }
 

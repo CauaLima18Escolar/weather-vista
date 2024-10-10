@@ -4,37 +4,72 @@
     align-items: center;
     border: 1px solid #243644;
     border-radius: 8px;
-    padding-right: 10px;
 }
 
 .forecastDays h2 {
     font-size: 2rem;
 }
 
-.forecastDays .dayTemp {
-    display: flex;
+.dayTemp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 16px 10px;
     border-radius: 8px 0 0 8px;
     gap: 16px;
     background-color: #243644;
 }
 
-.forecastDays .dayTemp h2 {
+.dayName h2 {
+    font-size: 2rem;
+}
+
+.dayTemp h2 {
     display: flex;
     color: #fff;
 }
 
-.forecastDays .dayTemp > span {
+.dayTemp img {
+    width: 40px;
+}
+
+.dayTemp > span {
     display: flex;
     align-items: center;
 }
 
-.forecastDays .weatherIcon {
+.weatherIcon {
     place-self: center;
     width: 40px;
 }
 
-.forecastDays .dayName {
-    place-self: center end;
+.dayName {
+    place-self: center;
     text-align: center;
+}
+
+@media (width <= 1000px){
+    .dayTemp h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (width <= 680px){
+    .forecastDays {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        border-radius: 8px 8px 0 0;
+        gap: 8px;
+    }
+
+    .dayTemp {
+        gap: 8px;
+    }
+
+    .dayTemp h2, .dayName h2 {
+        font-size: 1.5rem;
+    }
+
+    .dayTemp img {
+        width: 32px;
+    }
 }

@@ -4,14 +4,15 @@
     width: 100%;
     padding: 20px;
     background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-.weatherForecast .today h1 {
+.today h1 {
     font-size: 2.25rem;
     margin-bottom: 32px;
 }
 
-.weatherForecast .nextDays {
+.nextDays {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -20,5 +21,17 @@
 @media (width <= 1450px){
     .weatherForecast {
         width: 100%;
+    }
+}
+
+@media (width <= 1000px){
+    .today h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (width <= 680px){
+    .today h1 {
+        font-size: 1.5rem;
     }
 }
