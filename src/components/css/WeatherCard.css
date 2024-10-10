@@ -5,7 +5,7 @@
     border-radius: 4px;
 }
 
-.weatherCard .cityImage img {
+.cityImage img {
     border-radius: 4px 4x 0 0;
     object-fit: cover;
     height: 380px;
@@ -13,13 +13,13 @@
 }
 
 
-.weatherCard .city {
+.city {
     display: flex;
     align-items: start;
     gap: 8px;
 }
 
-.weatherCard .city img {
+.city img {
     width: 40px;
 }
 
@@ -46,7 +46,7 @@
     color: #fff;
 }
 
-.cityDetails > .cityTemp {
+.cityTemp {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -55,35 +55,49 @@
     left: 20px;
 }
 
-.cityDetails > .cityTemp img {
+.cityTemp img {
     width: 60px;
 }
 
-.cityDetails > .cityTemp h2 {
+.cityTemp h2 {
     position: relative;
 }
 
-.cityDetails > .cityTemp .deg {
+.cityTemp .deg {
     position: absolute;
     top: 0;
     right: -36px;
     font-size: 1.8rem;
 }
 
-.cityDetails .cityName {
+.cityName {
     text-align: end;
 }
 
-.cityDetails .cityName h2 {
+.cityName h2 {
    font-size: 2.25rem;
 }
 
-.cityDetails .cityName p {
+.cityName p {
     font-weight: 500;
  }
 
 @media (width <= 1450px){
     .weatherCard {
         width: 100%;
+    }
+}
+
+@media (width <= 1000px){
+    .cityTemp h2 {
+        font-size: 2rem;
+    }
+
+    .cityTemp .deg {
+        font-size: 1rem;
+    }
+
+    .cityTemp img {
+        width: 40px;
     }
 }

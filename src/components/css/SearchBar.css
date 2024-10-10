@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-input {
+.searchBar {
     justify-self: end;
     height: 100%;
     width: 100%;
@@ -15,7 +15,7 @@ input {
     color: #98A6A9;
 }
 
-button {
+.searchBTN {
     border: none;
     border-left: 2px solid #11212D;
     border-radius: 0 4px 4px 0;
@@ -25,6 +25,12 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+.searchBTN:hover {
     background-color: #CCD0CF;
+}
+
+@media (width <= 600px){
+    .searchBar {
+        font-size: 1.2rem;
+    }
 }

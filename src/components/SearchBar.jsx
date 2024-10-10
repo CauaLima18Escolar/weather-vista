@@ -6,16 +6,6 @@ import './css/SearchBar.css';
 const SearchBar = ({onDataChange, setLoading}) => {
   const [inputValue, setInputValue] = React.useState('')
 
-  function handleChange({target}){
-    setInputValue(target.value)
-  }
-
-  function handleKeyDown({key}){
-    if (key === 'Enter'){
-      handleClick()
-    }
-  }
-
   async function handleClick(){
     const data = await getWeatherData(inputValue, setLoading);
     onDataChange(data);
@@ -23,8 +13,15 @@ const SearchBar = ({onDataChange, setLoading}) => {
 
   return (
     <div className='inputWid'>
-      <input type="text" placeholder='Busque por uma cidade' onChange={handleChange} onKeyDown={handleKeyDown}/>
-      <button onClick={handleClick}><img src={Search}/></button>
+      <input 
+        type="text" 
+        value={inputValue}
+        placeholder='Busque por uma cidade'
+        className='searchBar'
+        onChange={({target}) => setInputValue(target.value)} 
+        onKeyDown={({key}) => key === 'Enter' ? handleClick() : null}
+      />
+      <button className='searchBTN' onClick={handleClick}><img src={Search}/></button>
     </div>
   )
 }

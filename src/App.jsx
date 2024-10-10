@@ -33,7 +33,7 @@ const App = () => {
     }
 
     setWeatherData(data)
-    setCityImg(data[1].results[0].urls.full)
+    setCityImg(data[1].results[0].urls.regular)
     setDataError(false)
     setLoading(false)
   };
@@ -45,7 +45,7 @@ const App = () => {
   }, [weatherData])
 
   return (
-    <div className='body' style={{backgroundImage: `url(${cityImg})`}}>
+    <div className='body'style={{backgroundImage: `url(${cityImg})`}}>
       <div>
         <Header onDataChange={onDataChange} setLoading={setLoading} />
 
