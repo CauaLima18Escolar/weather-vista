@@ -14,7 +14,7 @@ const App = () => {
   const [hour, setHour] = React.useState('');
   const [cityImg, setCityImg] = React.useState('');
 
-  function getDay_getHour(date){
+  function getDay_getHour(date, setDay, setHour){
     let todayDate = new Date(date)
     let options = {weekday: 'short'}
     let TodayDay = todayDate.toLocaleDateString('pt-BR', options);
@@ -40,7 +40,7 @@ const App = () => {
 
   React.useEffect(() => {
     if (weatherData){
-      getDay_getHour(weatherData.list[0].dt_txt);
+      getDay_getHour(weatherData.list[0].dt_txt, setDay, setHour);
     }
   }, [weatherData])
 

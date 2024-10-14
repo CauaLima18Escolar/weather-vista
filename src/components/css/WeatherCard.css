@@ -52,8 +52,6 @@
     align-items: start;
     gap: 8px;
     font-size: 2rem;
-    top: 20px;
-    left: 20px;
 }
 
 .cityTemp img {
@@ -132,5 +130,32 @@
 
     .statistics h1 {
         font-size: 1.5rem;
+    }
+}
+
+@media (width <= 500px){
+    .cityDetails {
+       display: flex;
+       gap: 4px;
+       flex-direction: column;
+       align-items: end;
+    }
+
+    .cityTemp {
+        gap: 4px;
+        order: 2;
+        font-size: 1rem;
+    }
+    
+    .cityTemp h2 {
+        font-size: 1.2rem;
+    }
+
+    .cityTemp .deg {
+        display: none;
+    }
+
+    .cityTemp img {
+        width: 24px;
     }
 }

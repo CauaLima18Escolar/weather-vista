@@ -34,7 +34,7 @@
 
 .dayTemp > span {
     display: flex;
-    align-items: center;
+    place-content: center;
 }
 
 .weatherIcon {
@@ -63,6 +63,7 @@
 
     .dayTemp {
         gap: 8px;
+        border-radius: 8px 8px 0 0;
     }
 
     .dayTemp h2, .dayName h2 {

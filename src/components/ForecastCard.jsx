@@ -4,6 +4,25 @@ import ForecastData from './ForecastData';
 import ForecastDays from './ForecastDays';
 
 const ForecastCard = ({data, day}) => {
+  let date = new Date()
+  let todayDate
+  todayDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+
+  const [previousDay, setDay] = React.useState('')
+  const [currentDate, setCurrentDate] = React.useState(todayDate)
+  
+  function getForecast(data) {}
+
+  React.useEffect(() => {
+    data.list.forEach((weatherOb) => {
+      if (weatherOb.dt_txt.split(' ')[0] !== currentDate) {
+        console.log(weatherOb.dt_txt)
+        setCurrentDate(weatherOb.dt_txt.split(' ')[0])
+      }
+    })
+    
+  }, [data])
+
   return (
     <div className='weatherForecast'>
         <div className='today'>
